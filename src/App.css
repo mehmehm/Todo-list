@@ -1,5 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root{
+  --px: 6px;           /* pixel size */
+  --blue: #1d2fb8;     /* frame blue */
+  --hotpink: #ff5aa7;  /* title bar pink */
+  --cream: #fff7ea;    /* content bg */
+  --ink: #1b1b1b;      /* dark text */
+}
+*{ box-sizing:border-box }
+
+
 .App {
   text-align: center;
+  width: 60%;
 }
 
 .App-logo {

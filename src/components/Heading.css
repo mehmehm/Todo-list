@@ -1,0 +1,34 @@
+/* components/Heading.css */
+.heading{
+  text-align:center;
+  pointer-events:none;
+}
+
+.heading__title{
+  margin:0;
+  font-family:"Press Start 2P", monospace;
+  font-size: clamp(28px, 4.4vw, 56px);
+  letter-spacing: 2px;
+  color: #fffbe9;
+  text-transform: uppercase;
+
+  /* chunky outline */
+  text-shadow:
+     /* yellow ring */
+    -2px -2px 0 #0d1a8f,
+     2px -2px 0 #0d1a8f,
+    -2px  2px 0 #0d1a8f,
+     2px  2px 0 #0d1a8f,
+    /* blue ring */
+    -4px -4px 0 #ffd166,
+     4px -4px 0 #ffd166,
+    -4px  4px 0 #ffd166,
+     4px  4px 0 #ffd166;
+}
+
+.heading__sub{
+  margin-top:8px;
+  font-family:"Press Start 2P", monospace;
+  font-size: 12px;
+  color:#1d2fb8;
+}

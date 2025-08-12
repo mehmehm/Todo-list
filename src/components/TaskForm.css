@@ -1,0 +1,45 @@
+/* components/TaskForm.css */
+.tf{
+  display:grid;
+  grid-template-columns: 1fr 2fr auto;
+  gap: 14px;
+  padding: 16px;
+  border: var(--px) solid var(--blue);
+  background: #f6efe0;
+  image-rendering: pixelated;
+}
+
+.tf__field{ display:flex; flex-direction:column; gap:8px; min-width:0; }
+.tf__label{
+  font-family:"Press Start 2P", monospace;
+  font-size: 10px; color: var(--ink); opacity:.8;
+}
+
+/* pixel input */
+.px-input{
+  height: 46px;
+  padding: 0 12px;
+  background:#ece6d6;
+  color:#1b1b1b;
+  border:none;
+  outline: var(--px) solid var(--blue);
+  font-family: inherit;
+}
+.px-input::placeholder{ color:#8e8a80; }
+
+/* pixel button */
+.px-btn{
+  height: 46px;
+  padding: 0 18px;
+  font-family:"Press Start 2P", monospace;
+  background:#ffd86e;
+  color:#1b1b1b;
+  border:none;
+  outline: var(--px) solid var(--blue);
+  cursor:pointer;
+}
+.px-btn:active{ transform: translateY(1px); }
+
+@media (max-width: 820px){
+  .tf{ grid-template-columns: 1fr; }
+}

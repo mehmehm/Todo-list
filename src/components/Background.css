@@ -1,0 +1,8 @@
+/* components/Background.css */
+.bg-pastel{
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(90deg,#ffe99a 0%, #ffd7c0 40%, #fbc1ff 100%);
+}

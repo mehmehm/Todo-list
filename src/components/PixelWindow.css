@@ -1,0 +1,61 @@
+/* components/PixelWindow.css */
+
+/* center the whole window on the page */
+.pixel-window-wrap{
+  display:flex; justify-content:center;
+  padding: 32px 16px 56px;
+}
+
+/* the blue “pixel” frame */
+.pixel-window{
+  --titlebar-h: 110px;
+  position: relative;
+  background: var(--cream);
+  border: var(--px) solid var(--blue);
+  /* stepped shadow to mimic chunky pixels along bottom/right */
+  box-shadow:
+    calc(var(--px)*1)  calc(var(--px)*1) 0 var(--blue),
+    calc(var(--px)*2)  calc(var(--px)*2) 0 var(--blue),
+    calc(var(--px)*3)  calc(var(--px)*3) 0 var(--blue);
+  box-sizing: border-box;
+}
+
+/* inner content area (cream) with thick top spacer for title bar */
+.pixel-inner{
+  padding: 18px;
+  padding-top: calc(130px + 18px); /* room for title bar height */
+  min-height: 420px;
+}
+
+/* hot-pink title bar */
+.pixel-titlebar{
+  position:absolute;
+  top:0; left:0; right:0;
+  height: 120px;
+  background: var(--hotpink);
+  border-bottom: var(--px) solid var(--blue);
+  display:flex; align-items:center; justify-content:center;
+  gap: 18px;
+  /* top “white strip” like mock */
+  box-shadow: inset 0 var(--px) 0 #ffffffaa;
+}
+
+/* blue diamonds (pixel squares) on left */
+.title-icons{
+  position:absolute; left: 26px;
+  display:flex; gap: 16px;
+}
+.title-icons span{
+  width: 18px; height: 18px;
+  background: var(--blue);
+  transform: rotate(45deg);
+  box-shadow:
+    -18px 0 0 var(--blue),
+     18px 0 0 var(--blue),
+     36px 0 0 var(--blue); /* makes 4 total incl. the main one */
+}
+
+/* make edges feel pixelated (no smoothing) */
+.pixel-window, .pixel-titlebar, .title-icons span {
+  image-rendering: pixelated;
+}
