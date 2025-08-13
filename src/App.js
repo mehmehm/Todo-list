@@ -23,6 +23,32 @@ export default function App(){
   const toggleComplete = id => setTasks(p=>p.map(t=>t.id===id?{...t,completed:!t.completed}:t));
   const deleteTask  = id => setTasks(p=>p.filter(t=>t.id!==id));
 
+  const reorder = (dragId, overId, position = "after") => {
+  setTasks(prev => {
+    const list = prev.slice();
+
+    // remove dragged item
+    const fromIdx = list.findIndex(t => t.id === dragId);
+    if (fromIdx === -1) return prev;
+    const [moved] = list.splice(fromIdx, 1);
+
+    // drop to start/end if no specific target
+    if (!overId) {
+      const insertIdx = position === "start" ? 0 : list.length;
+      list.splice(insertIdx, 0, moved);
+      return list;
+    }
+
+    // compute target index AFTER removal
+    const overIdx = list.findIndex(t => t.id === overId);
+    if (overIdx === -1) return prev;
+
+    const insertIdx = position === "before" ? overIdx : overIdx + 1;
+    list.splice(insertIdx, 0, moved);
+    return list;
+  });
+  };
+
   const today = new Date().toLocaleDateString("en-AU",{day:"2-digit",month:"short",year:"numeric"});
   const remaining = useMemo(()=>tasks.filter(t=>!t.completed).length,[tasks]);
 
@@ -35,7 +61,7 @@ export default function App(){
           {remaining} tasks left
         </p>
         <TaskForm onAdd={addTask}/>
-        <TaskList tasks={tasks} onToggle={toggleComplete} onDelete={deleteTask}/>
+        <TaskList tasks={tasks} onToggle={toggleComplete} onDelete={deleteTask} onReorder={reorder}/>
       </PixelWindow>
     </div>
   );
