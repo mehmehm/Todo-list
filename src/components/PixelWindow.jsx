@@ -5,7 +5,7 @@ import "./PixelWindow.css";
 export default function PixelWindow({
   children,
   titleBar,
-  width = "60%",            // accept %, vw, clamp(), px, etc.
+  width = "60%",            
 }) {
   // allow numbers (px) or strings
   const w = typeof width === "number" ? `${width}px` : width;
@@ -14,9 +14,6 @@ export default function PixelWindow({
     <div className="pixel-window-wrap">
       <div className="pixel-window" style={{ width: w }}>
         <div className="pixel-titlebar">
-          <div className="title-icons" aria-hidden>
-            <span/><span/><span/><span/>
-          </div>
           {titleBar}
         </div>
         <div className="pixel-inner">{children}</div>

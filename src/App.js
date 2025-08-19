@@ -57,8 +57,8 @@ export default function App(){
       <Background />
       <PixelWindow width="clamp(960px, 95vw, 1020px)"
         titleBar={<Heading title="TODO-LIST" subtitle={today} />}>
-        <p style={{fontFamily:'"Press Start 2P", monospace', fontSize:12, margin:'0 0 10px', opacity:.7}}>
-          {remaining} tasks left
+        <p style={{fontFamily:'"Press Start 2P", monospace', fontSize:16, margin:'0 0 15px', opacity:.7, textAlign: "center", alignSelf:'center'}}>
+          {remaining} tasks left today! You got this :)
         </p>
         <TaskForm onAdd={addTask}/>
         <TaskList tasks={tasks} onToggle={toggleComplete} onDelete={deleteTask} onReorder={reorder}/>
