@@ -44,7 +44,7 @@ export default function TaskList({ tasks, onToggle, onDelete, onReorder }) {
     setDragId(null); setOverId(null); setOverPos(null);
   };
 
-  if (!tasks.length) return <p className="tl__empty">No tasks yet — add one above.</p>;
+  if (!tasks.length) return <p className="tl__empty">No tasks yet - add one above.</p>;
 
   return (
     <ul

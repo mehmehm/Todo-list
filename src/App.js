@@ -6,6 +6,7 @@ import Heading from "./components/Heading";
 import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
 
+
 export default function App(){
   const [tasks, setTasks] = useState(()=> {
     try{ return JSON.parse(localStorage.getItem("todos-v1")) || []; }
@@ -13,10 +14,20 @@ export default function App(){
   });
   useEffect(()=>localStorage.setItem("todos-v1", JSON.stringify(tasks)),[tasks]);
 
+  const getCrypto = () => {
+  if (typeof window !== "undefined" && window.crypto) return window.crypto; // browser
+  if (typeof global !== "undefined" && global.crypto) return global.crypto; // jest/node
+  return undefined;
+  };
+
+  const makeId = () =>
+  getCrypto()?.randomUUID?.() ??
+  `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
+
   const addTask = (title, description) => {
     if(!title.trim()) return;
     setTasks(prev=>[
-      { id: crypto?.randomUUID?.() ?? Date.now()+Math.random(), title:title.trim(), description:description.trim(), completed:false },
+      { id: makeId(), title:title.trim(), description:description.trim(), completed:false },
       ...prev
     ]);
   };

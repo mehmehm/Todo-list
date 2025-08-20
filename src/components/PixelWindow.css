@@ -50,7 +50,7 @@
   background: var(--blue);
   transform: rotate(45deg);
   box-shadow:
-    -18px 0 0 var(--blue),
+    -18px 0 0 var(--    blue),
      18px 0 0 var(--blue),
      36px 0 0 var(--blue); /* makes 4 total incl. the main one */
 }
