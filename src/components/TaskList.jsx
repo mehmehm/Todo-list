@@ -14,7 +14,7 @@ export default function TaskList({ tasks, onToggle, onDelete, onReorder }) {
 
   const handleDragOverItem = (e, id) => {
     e.preventDefault();
-    e.stopPropagation(); // 🔒 don't let the UL think this is over empty space
+    e.stopPropagation(); // don't let the UL think this is over empty space
     if (id === dragId) { setOverId(null); setOverPos(null); return; }
 
     const rect = e.currentTarget.getBoundingClientRect();
@@ -27,7 +27,7 @@ export default function TaskList({ tasks, onToggle, onDelete, onReorder }) {
 
   const handleDropOnItem = (e, id) => {
     e.preventDefault();
-    e.stopPropagation(); // 🔒 prevent UL onDrop firing after this
+    e.stopPropagation(); // prevent UL onDrop firing after this
     if (dragId && id && overPos) onReorder(dragId, id, overPos);
     setDragId(null); setOverId(null); setOverPos(null);
   };
